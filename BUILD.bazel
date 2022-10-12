@@ -1,0 +1,27 @@
+# load(":node_modules/@graphql-codegen/cli:index.bzl", "graphql_codegen")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+npm_link_all_packages(name = "node_modules")
+
+load("@npm//:@graphql-codegen/cli/package_json.bzl", graphql_codegen = "bin")
+load("//:generate-config.bzl", "generate_config")
+
+# config just generated to make this example work crossplatform
+generate_config(
+    name = "config",
+)
+
+graphql_codegen.graphql_codegen(
+    name = "gen",
+    srcs = [
+        "schema.graphql",
+        ":config",
+        ":node_modules/@graphql-codegen/cli",
+        ":node_modules/@graphql-codegen/typescript",
+    ],
+    outs = ["types.ts"],
+    args = [
+        "--config",
+        "../../../$(location :config)",
+    ],
+)
