@@ -16,12 +16,14 @@ graphql_codegen.graphql_codegen(
     srcs = [
         "schema.graphql",
         ":config",
-        ":node_modules/@graphql-codegen/cli",
         ":node_modules/@graphql-codegen/typescript",
+        ":node_modules/typescript",
     ],
     outs = ["types.ts"],
     args = [
         "--config",
-        "../../../$(location :config)",
+        "config-codegen.yml",
     ],
+    chdir = package_name(),
+    log_level = "debug",
 )
