@@ -1,29 +1,30 @@
-# load(":node_modules/@graphql-codegen/cli:index.bzl", "graphql_codegen")
 load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+load(":graphql-codegen.bzl", "gqlgen")
 
 npm_link_all_packages()
 
-load("@npm//:@graphql-codegen/cli/package_json.bzl", graphql_codegen = "bin")
-load("//:generate-config.bzl", "generate_config")
-
-# config just generated to make this example work crossplatform
-generate_config(
-    name = "config",
+filegroup(
+    name = "schema",
+    srcs = ["schema.graphql"],
 )
 
-graphql_codegen.graphql_codegen(
-    name = "gen",
-    srcs = [
-        "schema.graphql",
-        ":config",
-        ":node_modules/@graphql-codegen/typescript",
+js_binary(
+    name = "launcher",
+    data = [
         ":node_modules/typescript",
+        "//:node_modules/@graphql-codegen/cli",
+        "//:node_modules/@graphql-codegen/typescript",
     ],
-    outs = ["types.ts"],
-    args = [
-        "--config",
-        "config-codegen.yml",
-    ],
-    chdir = package_name(),
-    log_level = "debug",
+    entry_point = "graphql-codegen-launcher.mjs",
+    visibility = ["//visibility:public"],
+)
+
+gqlgen(
+    name = "gen",
+    out = "types.ts",
+    config = {
+        "plugins": ["typescript"],
+    },
+    schemas = ":schema",
 )

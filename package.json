@@ -4,7 +4,7 @@
   "description": "bazel example for graphql codegen",
   "main": "index.js",
   "dependencies": {
-    "graphql": "^16.6.0"
+    "graphql": "16.6.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.13.7",
@@ -16,6 +16,7 @@
   "scripts": {
     "gen": "graphql-codegen --config codegen-template.yml"
   },
+
   "author": "",
   "license": "ISC"
 }
