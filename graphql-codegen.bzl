@@ -1,5 +1,7 @@
 "GraphQL code generation macro"
 
+# from https://github.com/aspect-build/rules_js/issues/227#issuecomment-1278272767
+
 load("@aspect_rules_js//js:defs.bzl", "js_run_binary")
 
 def _gqlgen_params_impl(ctx):
