@@ -43,13 +43,13 @@ def gqlgen(name, schemas, out, config, **kwargs):
     if type(config) != type(dict()):
         fail("the config attribute must be a dict")
     params = name + "_params"
-    target = out
-    if native.package_name():
-        target = native.package_name() + "/" + out
     _gqlgen_params(
         name = params,
         schemas = schemas,
-        target = target,
+        target = "{prefix}/{file}".format(
+            prefix = native.package_name(),
+            file = out,
+        ) if native.package_name() else out,
         config = json.encode(config),
         out = params + ".json",
     )
