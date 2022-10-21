@@ -2,11 +2,11 @@ schema {
   query: Query
 }
 
-type Query  {
-  book(id: String!): Book
-}
-
 type Book {
   id: String!
   author: String!
+}
+
+type Query {
+  book(id: String!): Book
 }

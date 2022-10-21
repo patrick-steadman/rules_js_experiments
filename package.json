@@ -4,16 +4,19 @@
   "description": "bazel example for graphql codegen",
   "main": "index.js",
   "dependencies": {
-    "graphql": "^16.2.0"
+    "graphql": "16.6.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.3.1",
-    "@graphql-codegen/typescript": "2.4.2",
-    "pnpm": "^7.13.4"
+    "@graphql-codegen/cli": "2.13.7",
+    "@graphql-codegen/typescript": "2.7.4",
+    "@types/node": "18.8.5",
+    "ts-node": "10.9.1",
+    "typescript": "4.8.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gen": "graphql-codegen --config codegen-template.yml"
   },
+
   "author": "",
   "license": "ISC"
 }
