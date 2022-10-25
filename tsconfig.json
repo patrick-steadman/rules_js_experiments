@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2021"],
+    "baseUrl": "./",
+    "declaration": true,
+    "paths": {
+      "monorepo/*": [
+        "bazel-bin/*",
+      ],
+    },
+  },
+}

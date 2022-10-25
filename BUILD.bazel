@@ -1,5 +1,6 @@
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@aspect_rules_js//js:defs.bzl", "js_binary")
+load("@aspect_rules_js//js:defs.bzl", "js_library")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 load(":graphql-codegen.bzl", "gqlgen")
 load("@jest//jest:defs.bzl", "jest_test")
@@ -27,23 +28,31 @@ ts_project(
     srcs = [
         "thing.ts",
     ],
-    tsconfig = {},
+    declaration = True,
+    deps = [
+        ":gen_ts",
+    ],
 )
 
 ts_project(
     name = "thing_test_src",
-    srcs = [
-        "*.spec.ts",
-    ],
-    tsconfig = {},
+    srcs = glob(["*.spec.ts"]),
+    declaration = True,
     deps = [
         ":thing",
         "//:node_modules/@types/jest",
     ],
 )
 
+js_library(
+    name = "jest_config",
+    srcs = ["jest.config.js"],
+    visibility = ["//visibility:public"],
+)
+
 jest_test(
     name = "thing_test",
+    config = ":jest_config",
     data = [
         ":thing_test_src",
     ],

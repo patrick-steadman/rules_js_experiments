@@ -1,3 +1,6 @@
+import "./thing"
+import thing from "./thing";
+
 test('a', () => {
-  expect(1).toBe(1)
+  expect(thing().author).toBe("hi")
 })

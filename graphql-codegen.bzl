@@ -3,6 +3,7 @@
 # from https://github.com/aspect-build/rules_js/issues/227#issuecomment-1278272767
 
 load("@aspect_rules_js//js:defs.bzl", "js_run_binary")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 
 def _gqlgen_params_impl(ctx):
     params = {
@@ -68,4 +69,9 @@ def gqlgen(name, schemas, out, config, **kwargs):
         #     "NODE_DEBUG": "module",
         # },
         **kwargs
+    )
+    ts_project(
+        name = "%s_ts" % name,
+        declaration = True,
+        srcs = [out],
     )

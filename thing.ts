@@ -1,7 +1,11 @@
-function thing() {
-  console.log("hi")
+import { Book } from "monorepo/types"
+
+const thing: () => Book = () => {
+  const book: Book = {
+    author: "hi",
+    id: "1"
+  }
+  return book
 }
 
-thing()
-
-export const foo = 1
+export default thing
