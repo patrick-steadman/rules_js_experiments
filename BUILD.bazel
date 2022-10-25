@@ -2,6 +2,7 @@ load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@aspect_rules_js//js:defs.bzl", "js_binary")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 load(":graphql-codegen.bzl", "gqlgen")
+load("@jest//jest:defs.bzl", "jest_test")
 
 npm_link_all_packages()
 
@@ -27,6 +28,25 @@ ts_project(
         "thing.ts",
     ],
     tsconfig = {},
+)
+
+ts_project(
+    name = "thing_test_src",
+    srcs = [
+        "*.spec.ts",
+    ],
+    tsconfig = {},
+    deps = [
+        ":thing",
+        "//:node_modules/@types/jest",
+    ],
+)
+
+jest_test(
+    name = "thing_test",
+    data = [
+        ":thing_test_src",
+    ],
 )
 
 js_binary(
