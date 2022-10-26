@@ -1,4 +1,3 @@
-import "./thing"
 import thing from "./thing";
 
 test('a', () => {
