@@ -6,12 +6,14 @@ specifiers:
   '@types/jest': ^29.2.0
   '@types/node': 18.8.5
   graphql: 16.6.0
+  left-sad: ^1.0.0
   ts-node: 10.9.1
   typescript: 4.8.4
 
 dependencies:
   '@types/jest': 29.2.0
   graphql: 16.6.0
+  left-sad: 1.0.0
 
 devDependencies:
   '@graphql-codegen/cli': 2.13.7_catevcyz7pcdfjs4vkj6kvu4yu
@@ -2491,6 +2493,10 @@ packages:
       jwa: 1.4.1
       safe-buffer: 5.2.1
     dev: true
+
+  /left-sad/1.0.0:
+    resolution: {integrity: sha512-R0kZxnDGSIIeNLKEhlSN87csvpplw71lqHdG8ne/u3V4QGqvwghqGa7rAZ696S9wfzzgMwjyYAkvHtRgfvXjoA==}
+    dev: false
 
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}

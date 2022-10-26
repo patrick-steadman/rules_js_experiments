@@ -1,0 +1,2 @@
+# Show output from errors in test runs
+test --test_output=errors

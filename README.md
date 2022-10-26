@@ -19,3 +19,10 @@ TODO:
 - `import` from `node_modules`
 - monorepo absolute path `import`
 - confirm editor support for `node_modules` types
+
+
+# How to add new dependencies
+
+1. Install correct nodejs version
+2. Install `pnpm` using npm: `npm i -g pnpm`
+3. Run `pnpm add foo`
