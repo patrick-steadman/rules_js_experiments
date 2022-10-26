@@ -26,6 +26,7 @@ js_binary(
 ts_project(
     name = "thing",
     srcs = [
+        "main.ts",
         "thing.ts",
     ],
     deps = [
@@ -59,7 +60,7 @@ jest_test(
 js_binary(
     name = "thing_js",
     data = ["thing"],
-    entry_point = "thing.js",
+    entry_point = "main.js",
 )
 
 gqlgen(
