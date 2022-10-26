@@ -28,7 +28,6 @@ ts_project(
     srcs = [
         "thing.ts",
     ],
-    declaration = True,
     deps = [
         ":gen_ts",
     ],
@@ -37,7 +36,6 @@ ts_project(
 ts_project(
     name = "thing_test_src",
     srcs = glob(["*.spec.ts"]),
-    declaration = True,
     deps = [
         ":thing",
         "//:node_modules/@types/jest",

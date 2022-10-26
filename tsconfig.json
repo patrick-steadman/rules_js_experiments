@@ -2,10 +2,10 @@
   "compilerOptions": {
     "lib": ["ES2021"],
     "baseUrl": "./",
-    "declaration": true,
     "paths": {
       "monorepo/*": [
-        "bazel-bin/*",
+        "./*", // required for building ts_project with generated sources from graphql
+        "bazel-bin/*", // required for intellij bazel indexing with generated sources from graphql
       ],
     },
   },
