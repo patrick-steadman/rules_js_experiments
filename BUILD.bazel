@@ -1,6 +1,9 @@
 load("@npm//:defs.bzl", "npm_link_all_packages")
 load("@aspect_rules_js//js:defs.bzl", "js_binary")
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 load(":graphql-codegen.bzl", "gqlgen")
+load("@jest//jest:defs.bzl", "jest_test")
 
 npm_link_all_packages()
 
@@ -18,6 +21,45 @@ js_binary(
     ],
     entry_point = "graphql-codegen-launcher.mjs",
     visibility = ["//visibility:public"],
+)
+
+ts_project(
+    name = "thing",
+    srcs = [
+        "thing.ts",
+    ],
+    deps = [
+        ":gen_ts",
+    ],
+)
+
+ts_project(
+    name = "thing_test_src",
+    srcs = glob(["*.spec.ts"]),
+    deps = [
+        ":thing",
+        "//:node_modules/@types/jest",
+    ],
+)
+
+js_library(
+    name = "jest_config",
+    srcs = ["jest.config.js"],
+    visibility = ["//visibility:public"],
+)
+
+jest_test(
+    name = "thing_test",
+    config = ":jest_config",
+    data = [
+        ":thing_test_src",
+    ],
+)
+
+js_binary(
+    name = "thing_js",
+    data = ["thing"],
+    entry_point = "thing.js",
 )
 
 gqlgen(

@@ -42,3 +42,22 @@ npm_translate_lock(
 load("@npm//:repositories.bzl", "npm_repositories")
 
 npm_repositories()
+
+http_archive(
+    name = "aspect_rules_jest",
+    sha256 = "bb3226707f9872185865a6381eb3a19311ca7b46e8ed475aad50975906a6cb6a",
+    strip_prefix = "rules_jest-0.10.0",
+    url = "https://github.com/aspect-build/rules_jest/archive/refs/tags/v0.10.0.tar.gz",
+)
+
+load("@aspect_rules_jest//jest:dependencies.bzl", "rules_jest_dependencies")
+
+rules_jest_dependencies()
+
+# Fetches the npm packages for jest-cli.
+load("@aspect_rules_jest//jest:repositories.bzl", "LATEST_VERSION", "jest_repositories")
+
+jest_repositories(
+    name = "jest",
+    jest_version = LATEST_VERSION,
+)
