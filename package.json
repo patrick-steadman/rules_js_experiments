@@ -4,7 +4,8 @@
   "description": "bazel example for graphql codegen",
   "dependencies": {
     "@types/jest": "^29.2.0",
-    "graphql": "16.6.0"
+    "graphql": "16.6.0",
+    "left-sad": "^1.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.13.7",

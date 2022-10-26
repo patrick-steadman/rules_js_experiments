@@ -31,6 +31,7 @@ ts_project(
     ],
     deps = [
         ":gen_ts",
+        "//:node_modules/left-sad",
     ],
 )
 
