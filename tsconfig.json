@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
-    "lib": ["ES2021"],
+    "lib": [
+      "dom",
+      "ES2021"
+    ],
     "baseUrl": "./",
     "paths": {
       "monorepo/*": [

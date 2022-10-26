@@ -2,7 +2,6 @@
   "name": "graphql-codgen-repro",
   "version": "1.0.0",
   "description": "bazel example for graphql codegen",
-  "main": "index.js",
   "dependencies": {
     "@types/jest": "^29.2.0",
     "graphql": "16.6.0"
