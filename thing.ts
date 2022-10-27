@@ -8,7 +8,7 @@ const thing: () => Book = () => {
     id: "1"
   }
 
-  console.log(map<number, string>([1, 2, 3], (element): number => (element + 1)))
+  console.log(map<number, number>([1, 2, 3], (element): number => (element + 1)))
 
   return book
 }
