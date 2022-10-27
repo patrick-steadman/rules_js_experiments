@@ -1,4 +1,4 @@
-import { Book } from "monorepo/types"
+import { Book } from "types"
 import * as leftSad from "left-sad"
 
 

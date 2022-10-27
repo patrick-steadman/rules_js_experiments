@@ -6,10 +6,13 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "monorepo/*": [
-        "./*", // required for building ts_project with generated sources from graphql
+      // modules are resolved in order, stepping through each element until it's found
+      // see https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping for more info
+      "*": [
+        "*", // required for building ts_project with generated sources from graphql
         "bazel-bin/*", // required for intellij bazel indexing with generated sources from graphql
-      ],
+        "bazel-bin/node_modules/*" // required for intellij bazel indexing with pnpm but no node_modules folder
+      ]
     },
   },
 }
