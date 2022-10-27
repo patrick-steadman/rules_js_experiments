@@ -11,7 +11,8 @@
       "*": [
         "*", // required for building ts_project with generated sources from graphql
         "bazel-bin/*", // required for intellij bazel indexing with generated sources from graphql
-        "bazel-bin/node_modules/*" // required for intellij bazel indexing with pnpm but no node_modules folder
+        "bazel-bin/node_modules/*", // required for intellij bazel indexing with pnpm but no node_modules folder
+        "bazel-bin/node_modules/@types/*" // required for intellij bazel indexing @types
       ]
     },
   },

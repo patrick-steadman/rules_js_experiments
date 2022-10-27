@@ -31,7 +31,9 @@ ts_project(
     ],
     deps = [
         ":gen_ts",
+        "//:node_modules/@types/lodash",
         "//:node_modules/left-sad",
+        "//:node_modules/lodash",
     ],
 )
 
@@ -60,7 +62,9 @@ jest_test(
 
 js_binary(
     name = "thing_js",
-    data = ["thing"],
+    data = [
+        "thing",
+    ],
     entry_point = "main.js",
 )
 
