@@ -1,0 +1,11 @@
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+
+nodejs_binary(
+    name = "change_import_style",
+    data = [
+        "@npm//minimist",
+    ],
+    entry_point = ":change_import_style.js",
+    templated_args = ["--bazel_patch_module_resolver"],
+    visibility = ["//visibility:public"],
+)
