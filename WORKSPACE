@@ -5,10 +5,17 @@ workspace(
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
+    name = "aspect_rules_js",
+    sha256 = "02da7c546cd70751b7375b7e95f7298709f5a33fda2863c2b68dac7745bca66d",
+    strip_prefix = "rules_js-1.6.4",
+    url = "https://github.com/aspect-build/rules_js/archive/refs/tags/v1.6.4.tar.gz",
+)
+
+http_archive(
     name = "aspect_rules_ts",
-    sha256 = "3eb3171c26eb5d0951d51ae594695397218fb829e3798eea5557814723a1b3da",
-    strip_prefix = "rules_ts-1.0.0-rc3",
-    url = "https://github.com/aspect-build/rules_ts/archive/refs/tags/v1.0.0-rc3.tar.gz",
+    sha256 = "1149d4cf7f210de67e0fc5cd3e8f624de3ee976ac05af4f1484e57a74c12f2dc",
+    strip_prefix = "rules_ts-1.0.0-rc5",
+    url = "https://github.com/aspect-build/rules_ts/archive/refs/tags/v1.0.0-rc5.tar.gz",
 )
 
 ##################

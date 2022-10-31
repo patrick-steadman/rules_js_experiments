@@ -73,4 +73,5 @@ def gqlgen(name, schemas, out, config, **kwargs):
     ts_project(
         name = "%s_ts" % name,
         srcs = [out],
+        declaration = True,
     )
