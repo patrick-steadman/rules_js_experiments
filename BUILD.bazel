@@ -35,6 +35,7 @@ ts_project(
         "//:node_modules/left-sad",
         "//:node_modules/lodash",
     ],
+    declaration = True,
 )
 
 ts_project(
@@ -44,6 +45,7 @@ ts_project(
         ":thing",
         "//:node_modules/@types/jest",
     ],
+    declaration = True,
 )
 
 js_library(
@@ -58,6 +60,9 @@ jest_test(
     data = [
         ":thing_test_src",
     ],
+    # This target can be made faster by disabling the sandbox & by disabling the fs patches
+    # tags = ["local"],
+    # patch_node_fs = False,
 )
 
 js_binary(

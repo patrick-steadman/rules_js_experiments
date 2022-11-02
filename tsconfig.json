@@ -15,5 +15,6 @@
         "bazel-bin/node_modules/@types/*" // required for intellij bazel indexing @types
       ]
     },
+    "declaration": true
   },
 }
